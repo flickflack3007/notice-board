@@ -1,6 +1,6 @@
 "use strict";
 
-/*import stylesheet from "../_css/app.css";*/
+import stylesheet from "../_css/app.css";
 
 /**
  * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
@@ -10,7 +10,8 @@ class App {
     /**
      * Konstruktor.
      */
-    constructor() {}
+    constructor() {
+    }
 
     /**
      * Ab hier beginnt die Anwendung zu laufen.

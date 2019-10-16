@@ -11,10 +11,33 @@ html, body {
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
+    display: flex;
+    flex-direction: column;
+
 }
 
 body * {
     border: .01em solid grey;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: row;
+}
+
+#board {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+footer {
+    justify-items: flex-end;
 }
 
 @media (max-width: 768px) {
@@ -45,4 +68,5 @@ body * {
     section {
         display: flex;
     }
+
 }

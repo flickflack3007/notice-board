@@ -1,6 +1,10 @@
 "use strict";
 
 import stylesheet from "../_css/app.css";
+import Home from "../home/home.js";
+import Login from "../login/login.js";
+import CreateNotice from "../createNotice/createNotice.js";
+
 
 /**
  * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
@@ -10,7 +14,11 @@ class App {
     /**
      * Konstruktor.
      */
-    constructor() {}
+    constructor() {
+        let home = new Home();
+        let login = new Login();
+        let createNotice = new CreateNotice();
+    }
 
     /**
      * Ab hier beginnt die Anwendung zu laufen.
@@ -57,7 +65,7 @@ class App {
     }
 
     getContent(fragmentID, callback) {
-        /*
+        
         //erzeugen eines XMLHttpRequest
         let request = new XMLHttpRequest();
 
@@ -69,15 +77,15 @@ class App {
         let url = fragmentID + ".html";
         request.open("GET", url);
         request.send(null);
-        */
-
+        
+        /*
         let routes = {
             home: "Das ist die Hauptseite, die die Notizen anzeigt",
             login: "Auf dieser Seite passiert der Login",
             createNotice: "Seite zum Erstellen einer Notiz"
         };
         callback(routes[fragmentID]);
-        
+        */
     }
 
 

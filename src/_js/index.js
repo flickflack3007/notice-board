@@ -1,7 +1,7 @@
 "use strict";
 
-import stylesheet from "./_css/index.css";
-import App from "./_js/app.js";
+import stylesheet from "../_css/index.css";
+import App from "./app.js";
 
 
 window.addEventListener("load", () => 

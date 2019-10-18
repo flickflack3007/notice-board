@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta name="description" content="Notice Board">
     <meta name="author" content="Henda, Vincent, Felix">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Notice Board</title>
 
-    <link rel="stylesheet" href="./_css/style.css">
+    <script src="./index.js"></script>    
 </head>
 
 <body>
@@ -25,12 +23,18 @@
         <div class="empty"></div>
         <aside id="sidebar">
             <nav>
-                <p>Navigation</p>
+                <h2>Navigation</h2>
+                <ul>
+                    <a id="notiz1" href="">Erste Notiz</a>
+                    <a id="notiz2" href="">Oma kocht morgen</a>
+                    <a id="notiz3" href="">...</a>
+                </ul>
             </nav>
         </aside>
 
         <section id="board">
-            <p>Hauptbereich</p>
+            <h1>Hauptbereich</p>
+                <div id="notizbereich"></div>
         </section>
     </main>
 

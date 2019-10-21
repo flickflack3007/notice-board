@@ -4,20 +4,25 @@ import stylesheet from "../_css/app.css";
 import Home from "../home/home.js";
 import Login from "../login/login.js";
 import CreateNotice from "../createNotice/createNotice.js";
-import {
-    freemem
-} from "os";
-
+import { database } from "firebase";
 
 /**
  * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
  * und die angeforderten Bildschirmseiten anzuzeigen.
  */
+
+let partialsCache = {};
+
+
 class App {
     /**
      * Konstruktor.
      */
     constructor() {
+        //FireBase Datenbank
+        let db = new database();
+        
+        //Template Javascript Classen
         let home = new Home();
         home.startHome();
         let login = new Login();
@@ -39,13 +44,10 @@ class App {
         }
         //lade die erste Navigation beim Seiten aufruf
         this.navigate();
-        this.logHash();
 
         //ruft die methode navigate auf wenn ein hashchange event auftritt
         this.addHashListener();
     }
-
-
 
     logHash() {
         window.console.log(location.hash);
@@ -56,13 +58,11 @@ class App {
     }
 
     navigate() {
-        console.log(this);
         //Suche nach dem zu befüllenden Inhaltselement
         let contentDiv = window.document.getElementById("content");
 
         //location.hash wird ohne # in variable fragmentID gespeichert
         let fragmentID = window.location.hash.substr(1);
-        console.log(this);
 
         //Befüllung des Inhaltselement mithilfe einer asynchronen Callback Function getContent
         this.getContent(fragmentID, function (content) {
@@ -71,7 +71,20 @@ class App {
     }
 
     getContent(fragmentID, callback) {
-        this.fetchFile(fragmentID + ".html", callback);
+        if (partialsCache[fragmentID]) {
+            callback(partialsCache[fragmentID]);
+            window.console.log(partialsCache);
+        } else {
+            this.fetchFile(fragmentID + ".html", function (content) {
+
+                // Store the fetched content in the cache.
+                partialsCache[fragmentID] = content;
+
+                // Pass the newly fetched content to the callback.
+                callback(content);
+            });
+        }
+
     }
 
     fetchFile(path, callback) {
@@ -97,7 +110,7 @@ class App {
 
         //Senden
         request.send(null);
-        
+
     }
 
 

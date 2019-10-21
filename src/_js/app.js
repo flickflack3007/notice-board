@@ -70,13 +70,14 @@ class App {
         request.open("GET", url);
         request.send(null);
         */
-
+        
         let routes = {
             home: "Das ist die Hauptseite, die die Notizen anzeigt",
             login: "Auf dieser Seite passiert der Login",
             createNotice: "Seite zum Erstellen einer Notiz"
         };
         callback(routes[fragmentID]);
+        
         
     }
 

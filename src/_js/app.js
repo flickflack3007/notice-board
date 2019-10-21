@@ -1,6 +1,13 @@
 "use strict";
 
 import stylesheet from "../_css/app.css";
+import Home from "../home/home.js";
+import Login from "../login/login.js";
+import CreateNotice from "../createNotice/createNotice.js";
+import {
+    freemem
+} from "os";
+
 
 /**
  * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
@@ -10,7 +17,14 @@ class App {
     /**
      * Konstruktor.
      */
-    constructor() {}
+    constructor() {
+        let home = new Home();
+        home.startHome();
+        let login = new Login();
+        login.startLogin();
+        let createNotice = new CreateNotice();
+        createNotice.startCreateNotice();
+    }
 
     /**
      * Ab hier beginnt die Anwendung zu laufen.
@@ -57,28 +71,33 @@ class App {
     }
 
     getContent(fragmentID, callback) {
-        /*
+        this.fetchFile(fragmentID + ".html", callback);
+    }
+
+    fetchFile(path, callback) {
+
         //erzeugen eines XMLHttpRequest
         let request = new XMLHttpRequest();
 
+        //Aufrufen des Files
+        request.open("GET", path, true);
+
+        /*
         //Aufrufen der Callback mit dem geladenen Inhalt
-        request.onload = function(){
+        request.onload = function () {
             callback(request.responseText);
         }
-
-        let url = fragmentID + ".html";
-        request.open("GET", url);
-        request.send(null);
         */
-        
-        let routes = {
-            home: "Das ist die Hauptseite, die die Notizen anzeigt",
-            login: "Auf dieser Seite passiert der Login",
-            createNotice: "Seite zum Erstellen einer Notiz"
-        };
-        callback(routes[fragmentID]);
-        
-        
+
+        request.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                callback(request.responseText);
+            }
+        }
+
+        //Senden
+        request.send(null);
+
     }
 
 

@@ -1,10 +1,10 @@
 "use strict";
 
 import stylesheet from "../_css/app.css";
-import Home from "../home/home.js";
-import Login from "../login/login.js";
-import CreateNotice from "../createNotice/createNotice.js";
-import { database } from "firebase";
+import Home from "../home-page/home.js";
+import Login from "../login-page/login.js";
+import CreateNotice from "../createNotice-page/createNotice.js";
+import Database from "./database";
 
 /**
  * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
@@ -19,8 +19,9 @@ class App {
      * Konstruktor.
      */
     constructor() {
-        //FireBase Datenbank
-        let db = new database();
+        //FireStore Datenbank
+        let fireStore = new Database();
+        fireStore.start();
         
         //Template Javascript Classen
         let home = new Home();

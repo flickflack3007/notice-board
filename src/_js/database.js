@@ -21,24 +21,27 @@ const firebaseConfig = {
     measurementId: "G-ZSD6CBCCXX"
   };
 
-let db = "";
+let _db = "";
 
 class Database {
     constructor() {
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         //Cloud Firestore
-        db = firebase.firestore();
+        _db = firebase.firestore();
     }
 
     start()
     {
         window.console.log("Database");
-        /*
-        db.collection("users").add({
-            first: "Ada",
-            last: "Lovelace",
-            born: 1815
+    }
+
+    addNotice(t, i, e)
+    {
+        _db.collection("users").add({
+            titel: t,
+            inhalt: i,
+            erstelldatum: e
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -46,7 +49,6 @@ class Database {
         .catch(function(error) {
             console.error("Error adding document: ", error);
         });
-        */
     }
 }
 export default  Database;

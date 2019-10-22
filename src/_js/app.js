@@ -19,17 +19,23 @@ class App {
      * Konstruktor.
      */
     constructor() {
+
+        //TO DO View Changer
+
         //FireStore Datenbank
-        let fireStore = new Database();
-        fireStore.start();
+        this._db = new Database();
+        this._db.start();
         
         //Template Javascript Classen
-        let home = new Home();
-        home.startHome();
-        let login = new Login();
-        login.startLogin();
-        let createNotice = new CreateNotice();
-        createNotice.startCreateNotice();
+        this._home = new Home();
+        this._home.startHome();
+
+        this._login = new Login();
+        this._login.startLogin();
+
+        this._createNotice = new CreateNotice(this);
+        this._createNotice.startCreateNotice();
+        
     }
 
     /**

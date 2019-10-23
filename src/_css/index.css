@@ -1,7 +1,8 @@
 html{
     font-family:sans-serif;
     font-size:10pt;
-    background-color:#FFFFFF
+    background-color:#FFFFFF;
+    background-image:url('../bananas.png')
 }
 
 body,html{

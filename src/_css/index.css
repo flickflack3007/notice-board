@@ -1,5 +1,6 @@
 html{
     font-size:10pt;
+    color:floralwhite;
     background-image:url('../cork-board.png')
 }
 
@@ -66,8 +67,12 @@ header>h1{
 }
 
 footer{
-    justify-items:flex-end;
     background-color: #808080;
+    display: flex-end;
+    clear: both;
+    position: relative;
+    height: 100px;
+    margin-top: 100px;
 }
 
 @media (max-width:768px){

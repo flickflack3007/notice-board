@@ -8,7 +8,7 @@ class Home {
     }
 
     startHome() {
-        window.console.log("Home");
+        window.console.log("");
     }
 }
 export default Home;

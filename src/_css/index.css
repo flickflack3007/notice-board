@@ -1,54 +1,61 @@
 html{
-    font-size:10pt;
+    font-size:15pt;
     color:floralwhite;
-    background-image:url('../cork-board.png')
+    background-image:url('../cork-board.png');
 }
 
 body,html{
     margin:0;
-    padding:0
+    padding:0;
 }
     
 body{
     font-family:'Amatic SC', cursive;
     font-size:12pt;
     display:flex;
-    flex-direction:column
+    flex-direction:column;
 }
     
 body *{
-    padding-left:.5em
+    padding-left:.5em;
 }
 
-header>#login{
-    flex-direction:column
-}
-
-header>#login,header>h1{
-    display:flex;
-    justify-content:center
+header>#loginRahmen{
+    display: flex;
+    flex-direction:row-reverse;
+    padding-right: 25px;
+    padding-top: 15px;
+    margin-bottom: -30px;
 }
 
 header>h1{
+    display:flex;
+    justify-content:center;
     flex-direction:row;
-    font-size:40pt;
+    font-size:50pt;
     font-family:'Permanent Marker', cursive;
-    color:#ad0b5c;
+    color:#c70566;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgba(46, 43, 43, 0.76);
     padding-bottom:15pt;
     margin-left:5em;
-    margin-right:5em
+    margin-right:5em;
+}
+
+#login{
+    font-weight: bolder;
+    font-size: 20pt;
+    color:floralwhite;
 }
 
 #login,main{
     display:flex;
     flex-direction:row;
-    background-image:url('../cork-board.png')
+    background-image:url('../cork-board.png');
 }
 
-#login{
-    justify-content:right
+#create{
+    justify-content: end;
 }
 
 #board,#sidebar{
@@ -56,17 +63,18 @@ header>h1{
     flex-direction:column;
     background-color:rgb(84, 170, 76);
     border-radius:.5em;
-    margin-left:1em;
-    margin-right:25em;
-    padding:10pt
+    margin-right:5em;
+    margin-left: -1em;
+    padding:15pt;
 }
 
 #board{
-    flex-grow:10
+    flex-grow:10;
 }
 
 #HomeUndNavigation{
     display: flex;
+    flex-direction: row;
 }
 
 footer{
@@ -95,5 +103,5 @@ footer{
 
 html{
     font-family:sans-serif;
-    font-size:10pt
+    font-size:10pt;
 }

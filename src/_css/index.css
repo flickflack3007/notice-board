@@ -31,15 +31,14 @@ header>#login,header>h1{
 
 header>h1{
     flex-direction:row;
-    font-size:30pt;
-    background-color:#808080;
+    font-size:40pt;
     font-family:'Permanent Marker', cursive;
-    color:#CC0066;
-    padding-top:20pt;
-    padding-bottom:20pt;
-    margin-left:10em;
-    margin-right:10em;
-    border-radius:.5em
+    color:#ad0b5c;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgba(46, 43, 43, 0.76);
+    padding-bottom:15pt;
+    margin-left:5em;
+    margin-right:5em
 }
 
 #login,main{
@@ -55,7 +54,7 @@ header>h1{
 #board,#sidebar{
     display:flex;
     flex-direction:column;
-    background-color:#00994C;
+    background-color:rgb(84, 170, 76);
     border-radius:.5em;
     margin-left:1em;
     margin-right:25em;
@@ -66,13 +65,17 @@ header>h1{
     flex-grow:10
 }
 
+#HomeUndNavigation{
+    display: flex;
+}
+
 footer{
     background-color: #808080;
     display: flex-end;
     clear: both;
     position: relative;
     height: 100px;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 @media (max-width:768px){

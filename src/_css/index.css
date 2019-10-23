@@ -10,7 +10,7 @@ body,html{
 }
     
 body{
-    font-family:sans-serif;
+    font-family:'Amatic SC', cursive;
     font-size:12pt;
     display:flex;
     flex-direction:column
@@ -34,6 +34,7 @@ header>h1{
     flex-direction:row;
     font-size:30pt;
     background-color:#CC0066;
+    font-family:'Pacifico', cursive;
     font-weight:bold;
     color:#00994C;
     padding-top:20pt;

@@ -10,7 +10,7 @@ html, body {
 
 body {
     font-family: sans-serif;
-    
+    background: darksalmon;
     display: flex;
     flex-direction: column;
 

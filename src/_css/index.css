@@ -1,83 +1,123 @@
+html{
+    font-size:15pt;
+    color:floralwhite;
+    background-image:url('../cork-board.png');
+}
+
+#gesamtContainer{
+    position: relative;
+}
+
+body,html{
+    margin:0;
+    padding:0;
+}
+    
+body{
+    font-family:'Amatic SC', cursive;
+    font-size:12pt;
+    display:flex;
+    flex-direction:column;
+}
+    
+body *{
+    padding-left:.5em;
+}
+
+header>#loginRahmen{
+    display: flex;
+    flex-direction:row-reverse;
+    padding-right: 25px;
+    padding-top: 15px;
+    margin-bottom: -30px;
+}
+
+header>h1{
+    display:flex;
+    justify-content:center;
+    flex-direction:row;
+    font-size:50pt;
+    font-family:'Permanent Marker', cursive;
+    color:#c70566;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgba(46, 43, 43, 0.76);
+    padding-bottom:15pt;
+    margin-left:5em;
+    margin-right:5em;
+}
+
+#login{
+    font-weight: bolder;
+    font-size: 20pt;
+    color:floralwhite;
+    background-color:rgb(84, 170, 76);
+    border-radius:.5em;
+    padding:10px;
+}
+
+#main{
+    display:flex;
+    flex-direction:row;
+    background-image:url('../cork-board.png');
+}
+
+#create{
+    justify-content: end;
+}
+
+#board,#sidebar{
+    display:flex;
+    flex-direction:column;
+    background-color:rgb(84, 170, 76);
+    border-radius:.5em;
+    margin-right:5em;
+    margin-left: -1em;
+    padding:15pt;
+}
+
+#board{
+    flex-grow:10;
+}
+
+#content{
+    position: relative;
+    border: black;
+    border-width: 5pt;
+}
+
+#HomeUndNavigation{
+    display: flex;
+    flex-direction: row;
+}
+
+footer{
+    background-color: #808080;
+    display: flex-end;
+    clear: both;
+    position: absolute bottom;
+    height: 100px;
+    margin-top: 120px;
+}
+
+@media (max-width:768px){
+    html{font-size:2.3vmin}
+    section{display:flex}
+}
+
+@media (min-width:768px){
+    html{font-size:2.3vmin}
+    section{display:flex}
+}
+
+@media (min-width:1200px){
+    html{font-size:2.3vmin}
+    section{display:flex}
+}
+
+html{
+    font-family:sans-serif;
+    font-size:10pt;
+}
 [draggable] {
-  user-select: none;
-}
-
-
-body {
-  font-family: sans-serif;
-  background: darksalmon;
-  display: flex;
-  flex-direction: column;
-}
-
-body * {
-  border: .01em solid grey;
-}
-
-header>#login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-header>h1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-main {
-  display: flex;
-  flex-direction: row;
-}
-
-#login {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-}
-
-#sidebar {
-  display: flex;
-  flex-direction: column;
-}
-
-#board {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 10;
-}
-
-footer {
-  justify-items: flex-end;
-}
-
-@media (max-width: 768px) {
-  html {
-    font-size: 2.3vmin;
+    user-select: none;
   }
-
-  section {
-    display: flex;
-  }
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 2.3vmin;
-  }
-
-  section {
-    display: flex;
-  }
-}
-
-@media (min-width: 1200px) {
-  html {
-    font-size: 2.3vmin;
-  }
-
-  section {
-    display: flex;
-  }
-}

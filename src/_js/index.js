@@ -10,7 +10,7 @@ window.addEventListener("load", () =>
     app.start();
 });
 
-
+/*
 <script type="text/javascript">
       var source;
       function dragstart_handler(ev) {
@@ -35,4 +35,6 @@ window.addEventListener("load", () =>
         li.addEventListener('drop', drop_handler, false);
       }
                          );
+
     </script>
+    */

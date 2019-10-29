@@ -12,19 +12,6 @@ class CreateNotice {
         _database = app._database;
     }
 
-    addSubmitButtonListener()
-    {
-        
-        let form = window.document.getElementById("formID");
-        form.addEventListener("submit", function(e)
-        {
-            e.preventDefault();
-            window.console.log("Help");
-            return false;
-        }
-        , false);
-        
-    }
 
     startCreateNotice()
     {

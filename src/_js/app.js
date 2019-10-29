@@ -55,6 +55,8 @@ class App {
 
         //ruft die methode navigate auf wenn ein hashchange event auftritt
         this.addHashListener();
+
+        
     }
 
     logHash() {

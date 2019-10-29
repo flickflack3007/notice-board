@@ -4,6 +4,10 @@ html{
     background-image:url('../cork-board.png');
 }
 
+#gesamtContainer{
+    position: relative;
+}
+
 body,html{
     margin:0;
     padding:0;
@@ -46,9 +50,12 @@ header>h1{
     font-weight: bolder;
     font-size: 20pt;
     color:floralwhite;
+    background-color:rgb(84, 170, 76);
+    border-radius:.5em;
+    padding:10px;
 }
 
-#login,main{
+#main{
     display:flex;
     flex-direction:row;
     background-image:url('../cork-board.png');
@@ -72,6 +79,12 @@ header>h1{
     flex-grow:10;
 }
 
+#content{
+    position: relative;
+    border: black;
+    border-width: 5pt;
+}
+
 #HomeUndNavigation{
     display: flex;
     flex-direction: row;
@@ -81,7 +94,7 @@ footer{
     background-color: #808080;
     display: flex-end;
     clear: both;
-    position: relative;
+    position: absolute bottom;
     height: 100px;
     margin-top: 120px;
 }

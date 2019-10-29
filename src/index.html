@@ -15,42 +15,46 @@
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <header>
-        <div id="loginRahmen"><div><a href="#login" id="login">Login</a></div></div>
-        <h1>Notice Board</h1>
-    </header>
-    <main>
+   <div id="gesamtContainer">
+    <body>
+        <header>
+            <div id="loginRahmen"><div><a href="#login" id="login">Login</a></div></div>
+            <h1>Notice Board</h1>
+        </header>
+        <main>
 
-        <div class="empty" id="HomeUndNavigation">
-          <div class="fill" draggable ="true"></div>
-        <div class="empty"></div>
-        <div class="empty"></div>
-        <aside id="sidebar">
-            <nav>
-                <h2>Navigation</h2>
-                <ul>
-                    <li>Erste Notiz</li>
-                    <li>Zweite Notiz</li>
-                    <li>Dritte Notiz</li>
-                </ul>
-            </nav>
-            <div id="create">
-                <a href="#createNotice">
-                    <i class="far fa-edit"></i>
-                </a>
+            <div class="empty" id="HomeUndNavigation">
+            <div class="fill" draggable ="true"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <aside id="sidebar">
+                <nav>
+                    <h2>Navigation</h2>
+                    <ul>
+                        <li>Erste Notiz</li>
+                        <li>Zweite Notiz</li>
+                        <li>Dritte Notiz</li>
+                    </ul>
+                </nav>
+                <div id="create">
+                    <a href="#createNotice">
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+            </aside>
+
+            <div id="content">
+                width: 50%;
+                height: 70%;
             </div>
-        </aside>
+        </main>
 
-        <div id="content">
-        </div>
-    </main>
+        <footer>
+            <p>Impressum</p>
+        </footer>
 
-    <footer>
-        <p>Impressum</p>
-    </footer>
-
-    <script src="https://kit.fontawesome.com/1c93ed9c01.js" crossorigin="anonymous"></script>
-</body>
+        <script src="https://kit.fontawesome.com/1c93ed9c01.js" crossorigin="anonymous"></script>
+    </body>
+</div>
 
 </html>

@@ -1,29 +1,42 @@
 "use strict";
 
 import stylesheet from "../_css/app.css";
-import Home from "../home/home.js";
-import Login from "../login/login.js";
-import CreateNotice from "../createNotice/createNotice.js";
-import {
-    freemem
-} from "os";
-
+import Home from "../home-page/home.js";
+import Login from "../login-page/login.js";
+import CreateNotice from "../createNotice-page/createNotice.js";
+import Database from "./database";
 
 /**
  * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
  * und die angeforderten Bildschirmseiten anzuzeigen.
  */
+
+let partialsCache = {};
+
+
 class App {
     /**
      * Konstruktor.
      */
     constructor() {
-        let home = new Home();
-        home.startHome();
-        let login = new Login();
-        login.startLogin();
-        let createNotice = new CreateNotice();
-        createNotice.startCreateNotice();
+
+        //TO Do View Changer
+        //To Do window.location.pathname
+
+        //FireStore Datenbank
+        this._database = new Database();
+        this._database.start();
+        
+        //Template Javascript Classen
+        this._home = new Home();
+        this._home.startHome();
+
+        this._login = new Login();
+        this._login.startLogin();
+
+        this._createNotice = new CreateNotice(this);
+        this._createNotice.startCreateNotice();
+        
     }
 
     /**
@@ -39,13 +52,10 @@ class App {
         }
         //lade die erste Navigation beim Seiten aufruf
         this.navigate();
-        this.logHash();
 
         //ruft die methode navigate auf wenn ein hashchange event auftritt
         this.addHashListener();
     }
-
-
 
     logHash() {
         window.console.log(location.hash);
@@ -56,13 +66,11 @@ class App {
     }
 
     navigate() {
-        console.log(this);
         //Suche nach dem zu befüllenden Inhaltselement
         let contentDiv = window.document.getElementById("content");
 
         //location.hash wird ohne # in variable fragmentID gespeichert
         let fragmentID = window.location.hash.substr(1);
-        console.log(this);
 
         //Befüllung des Inhaltselement mithilfe einer asynchronen Callback Function getContent
         this.getContent(fragmentID, function (content) {
@@ -71,7 +79,20 @@ class App {
     }
 
     getContent(fragmentID, callback) {
-        this.fetchFile(fragmentID + ".html", callback);
+        if (partialsCache[fragmentID]) {
+            callback(partialsCache[fragmentID]);
+            window.console.log(partialsCache);
+        } else {
+            this.fetchFile(fragmentID + ".html", function (content) {
+
+                // Store the fetched content in the cache.
+                partialsCache[fragmentID] = content;
+
+                // Pass the newly fetched content to the callback.
+                callback(content);
+            });
+        }
+
     }
 
     fetchFile(path, callback) {
@@ -97,7 +118,7 @@ class App {
 
         //Senden
         request.send(null);
-        
+
     }
 
 

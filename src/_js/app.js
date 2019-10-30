@@ -20,11 +20,12 @@ class App {
      */
     constructor() {
 
-        //TO DO View Changer
+        //TO Do View Changer
+        //To Do window.location.pathname
 
         //FireStore Datenbank
-        this._db = new Database();
-        this._db.start();
+        this._database = new Database();
+        this._database.start();
         
         //Template Javascript Classen
         this._home = new Home();

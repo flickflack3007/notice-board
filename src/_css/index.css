@@ -46,9 +46,12 @@ header>h1{
     font-weight: bolder;
     font-size: 20pt;
     color:floralwhite;
+    background-color:rgb(84, 170, 76);
+    border-radius:.5em;
+    padding:5pt;
 }
 
-#login,main{
+#main{
     display:flex;
     flex-direction:row;
     background-image:url('../cork-board.png');

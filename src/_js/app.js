@@ -5,15 +5,19 @@ import Home from "../home-page/home.js";
 import Login from "../login-page/login.js";
 import CreateNotice from "../createNotice-page/createNotice.js";
 import Database from "./database";
+import {
+    app
+} from "firebase";
 
 /**
  * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
  * und die angeforderten Bildschirmseiten anzuzeigen.
  */
 
-let partialsCache = {};
 
+ let partialsCache = {};
 
+ 
 class App {
     /**
      * Konstruktor.
@@ -21,12 +25,12 @@ class App {
     constructor() {
 
         //TO Do View Changer
-        //To Do window.location.pathname
+        //To Do window.location.pathname backwarts
 
         //FireStore Datenbank
         this._database = new Database();
         this._database.start();
-        
+
         //Template Javascript Classen
         this._home = new Home();
         this._home.startHome();
@@ -36,7 +40,7 @@ class App {
 
         this._createNotice = new CreateNotice(this);
         this._createNotice.startCreateNotice();
-        
+
     }
 
     /**
@@ -47,38 +51,54 @@ class App {
         console.log("Die Klasse App sagt Hallo!");
 
         //Wenn keine Fragment ID (#) zum Start der Seite ausgewählt wurde, zeige #home an
-        if (!window.location.hash) {
-            window.location.hash = "#home";
+        if (!window.location.pathname) {
+            window.location.pathname = "/";
         }
+
+
         //lade die erste Navigation beim Seiten aufruf
         this.navigate();
 
         //ruft die methode navigate auf wenn ein hashchange event auftritt
         this.addHashListener();
+        this.addPathListener();
+    }
+
+    logPath() {
+        window.console.log(window.location.pathname);
     }
 
     logHash() {
         window.console.log(location.hash);
     }
 
+    
     addHashListener() {
         window.addEventListener("hashchange", this.navigate.bind(this));
     }
+    
+    // für das Zurück im Browser
+    
+    addPathListener() {
+        window.addEventListener("popstate", this.navigate.bind(this));
+    }
+    
 
     navigate() {
         //Suche nach dem zu befüllenden Inhaltselement
         let contentDiv = window.document.getElementById("content");
 
         //location.hash wird ohne # in variable fragmentID gespeichert
-        let fragmentID = window.location.hash.substr(1);
+        let fragmentID = window.location.pathname;
 
         //Befüllung des Inhaltselement mithilfe einer asynchronen Callback Function getContent
         this.getContent(fragmentID, function (content) {
             contentDiv.innerHTML = content;
-        })
+        });
     }
 
     getContent(fragmentID, callback) {
+
         if (partialsCache[fragmentID]) {
             callback(partialsCache[fragmentID]);
             window.console.log(partialsCache);
@@ -96,20 +116,11 @@ class App {
     }
 
     fetchFile(path, callback) {
-
         //erzeugen eines XMLHttpRequest
         let request = new XMLHttpRequest();
-
         //Aufrufen des Files
         request.open("GET", path, true);
-
-        /*
-        //Aufrufen der Callback mit dem geladenen Inhalt
-        request.onload = function () {
-            callback(request.responseText);
-        }
-        */
-
+        
         request.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 callback(request.responseText);
@@ -118,9 +129,7 @@ class App {
 
         //Senden
         request.send(null);
-
     }
-
 
 }
 export default App;

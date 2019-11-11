@@ -46,8 +46,8 @@ class App {
     start() {
         console.log("Die Klasse App sagt Hallo!");
 
-        //Wenn keine FragmentID zum Start der Seite ausgewählt wurde, zeige #home an
-        if (window.location.pathname == "/") {
+        //Wenn keine Fragment ID zum Start der Seite ausgewählt wurde, zeige #home an
+        if (window.location.pathname  == "/") {
             window.location.pathname = "home";
         }
         //lade die erste Navigation beim Seiten aufruf

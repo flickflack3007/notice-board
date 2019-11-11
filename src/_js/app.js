@@ -86,7 +86,8 @@ class App {
                 let nodeTest = window.document.createElement("div");
                 nodeTest.innerHTML = content;
                 //In der Console werden die children mit id sogar angezeigt ... brauch ich ne globale Variable? 
-                window.console.log(nodeTest.childNodes);
+                window.console.log(nodeTest.childNodes[10]);
+                nodeTest.childNodes[10].style.backgroundColor = "yellow";
                 contentDiv.appendChild(nodeTest);
             });
         }
@@ -111,7 +112,7 @@ class App {
     addSubmitButtonListener()
     {
         window.console.log("function called");
-        let button = window.document.getElementById("erstellenButton");
+        //let button = window.document.getElementById("erstellenButton");
         button.addEventListener("click", function()
         {
             window.console.log("1");

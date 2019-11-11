@@ -14,7 +14,8 @@ import {
  * und die angeforderten Bildschirmseiten anzuzeigen.
  */
  let partialsCache = {};
- 
+ let button = null;
+
 class App {
     /**
      * Konstruktor.
@@ -84,6 +85,8 @@ class App {
                 
                 let nodeTest = window.document.createElement("div");
                 nodeTest.innerHTML = content;
+                //In der Console werden die children mit id sogar angezeigt ... brauch ich ne globale Variable? 
+                window.console.log(nodeTest.childNodes);
                 contentDiv.appendChild(nodeTest);
             });
         }

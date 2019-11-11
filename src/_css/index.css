@@ -61,7 +61,7 @@ header>h1{
     justify-content: end;
 }
 
-#board,#sidebar{
+#board,#sidebar,#create{
     display:flex;
     flex-direction:column;
     background-color:rgb(84, 170, 76);

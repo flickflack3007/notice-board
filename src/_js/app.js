@@ -53,20 +53,12 @@ class App {
         //lade die erste Navigation beim Seiten aufruf
         this.navigate();
 
-
         //ruft die methode navigate auf wenn ein hashchange event auftritt
         this.addHashListener();
         this.addPathListener();
     }
 
-    logPath() {
-        window.console.log(window.location.pathname);
-    }
-
-    logHash() {
-        window.console.log(location.hash);
-    }
-
+    //EventListener
     addHashListener() {
         window.addEventListener("hashchange", this.navigate.bind(this));
     }
@@ -77,6 +69,7 @@ class App {
     }
 
 
+    //Navigation
     navigate() {
         //Suche nach dem zu befüllenden Inhaltselement
         let contentDiv = window.document.getElementById("content");
@@ -88,13 +81,42 @@ class App {
         //Befüllung des Inhaltselement mithilfe einer asynchronen Callback Function getContent
         if (this.testRoutes(fragmentID) === true) {
             this.getContent(fragmentID, function (content) {
-                contentDiv.innerHTML = content;
+                
+                let nodeTest = window.document.createElement("div");
+                nodeTest.innerHTML = content;
+                contentDiv.appendChild(nodeTest);
             });
         }
         else 
         {
             contentDiv.innerHTML = "<h1>Dies ist kein gültige URL</h1>";
         }
+        this.changeEventListener(fragmentID);
+    }
+
+    changeEventListener(fID)
+    {
+        switch(fID)
+        {
+            case "/createNotice": 
+            window.console.log("changeEventListner");
+            this.addSubmitButtonListener();
+            break;
+        }
+    }
+
+    addSubmitButtonListener()
+    {
+        window.console.log("function called");
+        let form = window.document.getElementById("noticeform");
+        form.addEventListener("submit", function(e)
+        {
+            e.preventDefault();
+            window.console.log("function worked");
+            return false;
+        }
+        , false);
+        
     }
 
     testRoutes(fID) {
@@ -109,6 +131,8 @@ class App {
         return false;
     }
 
+
+    //Content Befüllung
     getContent(fragmentID, callback) {
 
         if (partialsCache[fragmentID]) {
@@ -117,10 +141,8 @@ class App {
         } else {
             this.fetchFile(fragmentID + ".html", function (content) {
 
-                // Store the fetched content in the cache.
                 partialsCache[fragmentID] = content;
 
-                // Pass the newly fetched content to the callback.
                 callback(content);
             });
         }
@@ -144,6 +166,7 @@ class App {
     }
 
 
+    //Logger
     logPath() {
         window.console.log(window.location.pathname);
     }

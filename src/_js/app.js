@@ -13,10 +13,7 @@ import {
  * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
  * und die angeforderten Bildschirmseiten anzuzeigen.
  */
-
-
  let partialsCache = {};
-
  
 class App {
     /**
@@ -40,7 +37,6 @@ class App {
 
         this._createNotice = new CreateNotice(this);
         this._createNotice.startCreateNotice();
-
     }
 
     /**
@@ -50,35 +46,24 @@ class App {
     start() {
         console.log("Die Klasse App sagt Hallo!");
 
-        //Wenn keine Fragment ID (#) zum Start der Seite ausgewählt wurde, zeige #home an
-        if (!window.location.pathname) {
-            window.location.pathname = "/";
+        //Wenn keine FragmentID zum Start der Seite ausgewählt wurde, zeige #home an
+        if (window.location.pathname == "/") {
+            window.location.pathname = "home";
         }
-
-
         //lade die erste Navigation beim Seiten aufruf
         this.navigate();
+
 
         //ruft die methode navigate auf wenn ein hashchange event auftritt
         this.addHashListener();
         this.addPathListener();
     }
 
-    logPath() {
-        window.console.log(window.location.pathname);
-    }
-
-    logHash() {
-        window.console.log(location.hash);
-    }
-
-    
     addHashListener() {
         window.addEventListener("hashchange", this.navigate.bind(this));
     }
     
     // für das Zurück im Browser
-    
     addPathListener() {
         window.addEventListener("popstate", this.navigate.bind(this));
     }
@@ -93,8 +78,11 @@ class App {
 
         //Befüllung des Inhaltselement mithilfe einer asynchronen Callback Function getContent
         this.getContent(fragmentID, function (content) {
-            contentDiv.innerHTML = content;
+            contentDiv.insertAdjacentHTML("afterend", content);
         });
+        window.console.log(window.document.getElementById("loginRahmen"))
+        window.console.log(window.document.getElementById("content"));
+
     }
 
     getContent(fragmentID, callback) {
@@ -129,6 +117,15 @@ class App {
 
         //Senden
         request.send(null);
+    }
+
+
+    logPath() {
+        window.console.log(window.location.pathname);
+    }
+
+    logHash() {
+        window.console.log(location.hash);
     }
 
 }

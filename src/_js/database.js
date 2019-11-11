@@ -50,5 +50,14 @@ class Database {
             console.error("Error adding document: ", error);
         });
     }
+
+    getNotice()
+    {
+        db.collection("users").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data()}`);
+            });
+        });
+    }
 }
 export default  Database;

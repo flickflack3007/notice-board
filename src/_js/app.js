@@ -93,7 +93,7 @@ class App {
         }
         else 
         {
-            contentDiv.innerHTML = "<h1>Dies ist kein gültige URL</h1>";
+            contentDiv.innerHTML = "<h1>Dies ist keine gültige URL</h1>";
         }
     }
 

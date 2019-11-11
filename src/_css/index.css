@@ -57,18 +57,30 @@ header>h1{
     background-image:url('../cork-board.png');
 }
 
-#create{
-    justify-content: end;
+#create {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    
 }
 
-#board,#sidebar,#create{
-    display:flex;
-    flex-direction:column;
-    background-color:rgb(84, 170, 76);
-    border-radius:.5em;
-    margin-right:5em;
-    margin-left: -1em;
-    padding:15pt;
+#sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar, #create {
+    
+    background-color: #54aa4c;
+    border-radius: .5em;
+    margin-right: 5em;
+    margin-left: 1em;
+    padding: 15pt;
+    float: left;
+    width: 10%;
+	height: 60vh;
+    
 }
 
 #board{
@@ -92,6 +104,12 @@ footer{
 @media (max-width:768px){
     html{font-size:2.3vmin}
     section{display:flex}
+    header>h1 {
+        display: flex;
+        float:none;
+        width:5%;
+        padding:1%;
+    }
 }
 
 @media (min-width:768px){

@@ -108,15 +108,11 @@ class App {
     addSubmitButtonListener()
     {
         window.console.log("function called");
-        let form = window.document.getElementById("noticeform");
-        form.addEventListener("submit", function(e)
+        let button = window.document.getElementById("erstellenButton");
+        button.addEventListener("click", function()
         {
-            e.preventDefault();
-            window.console.log("function worked");
-            return false;
-        }
-        , false);
-        
+            window.console.log("1");
+        });
     }
 
     testRoutes(fID) {

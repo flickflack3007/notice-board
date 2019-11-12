@@ -70,7 +70,7 @@ header>h1{
     flex-direction: column;
 }
 
-#sidebar, #create {
+#sidebar {
     
     background-color: #54aa4c;
     border-radius: .5em;
@@ -104,12 +104,6 @@ footer{
 @media (max-width:768px){
     html{font-size:2.3vmin}
     section{display:flex}
-    header>h1 {
-        display: flex;
-        float:none;
-        width:5%;
-        padding:1%;
-    }
 }
 
 @media (min-width:768px){

@@ -33,21 +33,22 @@ class Database {
 
     start()
     {
-        window.console.log("Database");
+        window.console.log("Klasse Database gestartet");
     }
 
-    addNotice(t, i, e)
+    addNotice(t, i)
     {
-        _db.collection("users").add({
+        _db.collection("notice").add({
             titel: t,
             inhalt: i,
-            erstelldatum: e
+            erstelldatum: Date.now(),
+            angezeigt: false
         })
         .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
+            console.log("Eintrag erstellt mit der ID: ", docRef.id);
         })
         .catch(function(error) {
-            console.error("Error adding document: ", error);
+            console.error("Fehler beim Speichern in der DB: ", error);
         });
     }
 

@@ -5,6 +5,8 @@ import stylesheet from "../_css/login.css";
 class Login {
 
     constructor() {
+
+        App.changeTitle("Notice Board - Login");
     }
 
     startLogin()

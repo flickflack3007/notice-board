@@ -13,8 +13,7 @@ import {
  * Hauptklasse der Anwendung. Kümmert sich darum, die Anwendung auszuführen
  * und die angeforderten Bildschirmseiten anzuzeigen.
  */
- let partialsCache = {};
- let button = null;
+let partialsCache = {};
 
 class App {
     /**
@@ -22,22 +21,19 @@ class App {
      */
     constructor() {
 
-        //TO Do View Changer
-        //To Do window.location.pathname backwarts
-
         //FireStore Datenbank
         this._database = new Database();
         this._database.start();
 
         //Template Javascript Classen
-        this._home = new Home();
-        this._home.startHome();
 
-        this._login = new Login();
-        this._login.startLogin();
 
-        this._createNotice = new CreateNotice(this);
-        this._createNotice.startCreateNotice();
+        this._createNotice = null;
+    }
+
+    static changeTitle(t)
+    {
+        window.document.title = t;
     }
 
     /**
@@ -45,10 +41,10 @@ class App {
      * (sozuagen main-methode)
      */
     start() {
-        console.log("Die Klasse App sagt Hallo!");
+        window.console.log("Die Klasse App sagt Hallo!");
 
         //Wenn keine Fragment ID zum Start der Seite ausgewählt wurde, zeige #home an
-        if (window.location.pathname  == "/") {
+        if (window.location.pathname == "/") {
             window.location.pathname = "home";
         }
         //lade die erste Navigation beim Seiten aufruf
@@ -72,51 +68,31 @@ class App {
 
     //Navigation
     navigate() {
-        //Suche nach dem zu befüllenden Inhaltselement
-        let contentDiv = window.document.getElementById("content");
-
         //location.hash wird ohne # in variable fragmentID gespeichert
         let fragmentID = window.location.pathname;
 
-       window.console.log(fragmentID); 
-        //Befüllung des Inhaltselement mithilfe einer asynchronen Callback Function getContent
         if (this.testRoutes(fragmentID) === true) {
-            this.getContent(fragmentID, function (content) {
-                
-                let nodeTest = window.document.createElement("div");
-                nodeTest.innerHTML = content;
-                //In der Console werden die children mit id sogar angezeigt ... brauch ich ne globale Variable? 
-                window.console.log(nodeTest.childNodes[10]);
-                nodeTest.childNodes[10].style.backgroundColor = "yellow";
-                contentDiv.appendChild(nodeTest);
-            });
-        }
-        else 
-        {
-            contentDiv.innerHTML = "<h1>Dies ist keine gültige URL</h1>";
-        }
-        this.changeEventListener(fragmentID);
-    }
-
-    changeEventListener(fID)
-    {
-        switch(fID)
-        {
-            case "/createNotice": 
-            window.console.log("changeEventListner");
-            this.addSubmitButtonListener();
-            break;
+            this.getContent(fragmentID);
+        } else {
+            window.console.log("Ungültige Pfadeingabe");
         }
     }
 
-    addSubmitButtonListener()
-    {
-        window.console.log("function called");
-        //let button = window.document.getElementById("erstellenButton");
-        button.addEventListener("click", function()
-        {
-            window.console.log("1");
-        });
+    changeEventListener(fID) {
+        switch (fID) {
+            case "/createNotice":
+                this._createNotice = new CreateNotice(this);
+                this._createNotice.startCreateNotice();
+                break;
+            case "/home":
+                this._home = new Home(this);
+                this._home.startHome();
+                break;
+            case "/login":
+                this._login = new Login();
+                this._login.startLogin();
+                break;
+        }
     }
 
     testRoutes(fID) {
@@ -133,36 +109,55 @@ class App {
 
 
     //Content Befüllung
-    getContent(fragmentID, callback) {
+    getContent(fragmentID) {
 
         if (partialsCache[fragmentID]) {
-            callback(partialsCache[fragmentID]);
             window.console.log(partialsCache);
+            return partialsCache[fragmentID];
         } else {
-            this.fetchFile(fragmentID + ".html", function (content) {
+            let that = this;
 
-                partialsCache[fragmentID] = content;
+            this.fetchFile(fragmentID + ".html").then(function (response) {
+                //Suche nach dem zu befüllenden Inhaltselement
+                let contentDiv = window.document.getElementById("content");
+                contentDiv.innerHTML = response;
+                partialsCache[fragmentID] = response;
 
-                callback(content);
+                that.changeEventListener(fragmentID);
+
+            }, function (Error) {
+                window.console.log(Error);
             });
         }
 
     }
 
-    fetchFile(path, callback) {
-        //erzeugen eines XMLHttpRequest
-        let request = new XMLHttpRequest();
-        //Aufrufen des Files
-        request.open("GET", path, true);
+    fetchFile(path) {
 
-        request.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                callback(request.responseText);
-            }
-        }
+        return new Promise(function (resolve, reject) {
 
-        //Senden
-        request.send(null);
+            //erzeugen eines XMLHttpRequest
+            let request = new XMLHttpRequest();
+            //Aufrufen des Files
+            request.open("GET", path, true);
+
+            request.onload = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    resolve(request.responseText);
+                } else {
+                    reject(Error("Template wurde nicht geladen; error code:" + request.statusText));
+                }
+            };
+
+            request.onerror = function () {
+                reject(Error("Netzwerkfehler aufgetretten"))
+            };
+
+            //Senden
+            request.send(null);
+
+        });
+
     }
 
 

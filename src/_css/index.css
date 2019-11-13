@@ -8,12 +8,13 @@ body,html{
     margin:0;
     padding:0;
 }
-    
+
 body{
     font-family:'Amatic SC', cursive;
     font-size:12pt;
     display:flex;
     flex-direction:column;
+    min-height: 100vh;
 }
     
 body *{
@@ -90,6 +91,10 @@ header>h1{
 #HomeUndNavigation{
     display: flex;
     flex-direction: row;
+}
+
+.container {
+    flex: 1;
 }
 
 footer{

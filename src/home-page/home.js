@@ -19,5 +19,10 @@ class Home {
     startHome() {
         window.console.log("Klasse Home gestartet");
     }
+
+    showNotice()
+    {
+
+    }
 }
 export default Home;

@@ -26,9 +26,9 @@ class App {
         this._database.start();
 
         //Template Javascript Classen
-
-
         this._createNotice = null;
+        this._home = null;
+        this._login = null;
     }
 
     static changeTitle(t)
@@ -68,6 +68,9 @@ class App {
 
     //Navigation
     navigate() {
+
+        this.updateSidebar();
+
         //location.hash wird ohne # in variable fragmentID gespeichert
         let fragmentID = window.location.pathname;
 
@@ -89,7 +92,7 @@ class App {
                 this._home.startHome();
                 break;
             case "/login":
-                this._login = new Login();
+                this._login = new Login(this);
                 this._login.startLogin();
                 break;
         }
@@ -158,6 +161,12 @@ class App {
 
         });
 
+    }
+
+    updateSidebar()
+    {
+        let noticeList = window.document.getElementById("noticeList");
+        this._database.getNotice();
     }
 
 

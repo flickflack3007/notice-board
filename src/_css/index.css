@@ -68,6 +68,9 @@ header>h1{
 #sidebar {
     display: flex;
     flex-direction: column;
+    background-color: #54aa4c;
+    height: auto;
+    width: max-content;
 }
 
 #sidebar {

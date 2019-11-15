@@ -17,7 +17,7 @@ class CreateNotice {
 
         App.changeTitle("Notice Board - Neue Notiz erstellen");
 
-        this.addSubmitButtonListener();
+        this.addSaveButtonListener();
     }
 
     startCreateNotice()
@@ -25,9 +25,9 @@ class CreateNotice {
         window.console.log("Klasse CreateNotice gestartet");
     }
 
-    addSubmitButtonListener() {
-        let button = window.document.getElementById("erstellenButton");
-        button.addEventListener("click", () => {
+    addSaveButtonListener() {
+        let createButton = window.document.getElementById("saveButton");
+        createButton.addEventListener("click", () => {
             this.saveNotice();
         });
     }
@@ -40,8 +40,12 @@ class CreateNotice {
         let inhalt = window.document.getElementById("form_inhalt").value;
         window.console.log(inhalt);
 
-        _database.addNotice(title, inhalt);
-        
+        _database.addNotice(title, inhalt);  
+    }
+
+    changePathToHome()
+    {
+        window.location.pathname = "/home";
     }
 }
 export default CreateNotice;

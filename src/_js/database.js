@@ -54,7 +54,7 @@ class Database {
 
     getNotice()
     {
-        db.collection("users").get().then((querySnapshot) => {
+        _db.collection("users").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 console.log(`${doc.id} => ${doc.data()}`);
             });

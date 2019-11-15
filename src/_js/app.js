@@ -166,7 +166,10 @@ class App {
     updateSidebar()
     {
         let noticeList = window.document.getElementById("noticeList");
+        let newNotice = window.document.createElement("li");
+        
         this._database.getNotice();
+        this._database.getMinimierteNotice();
     }
 
 

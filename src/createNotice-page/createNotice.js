@@ -29,6 +29,8 @@ class CreateNotice {
         let createButton = window.document.getElementById("saveButton");
         createButton.addEventListener("click", () => {
             this.saveNotice();
+            window.document.getElementById("form_title").value = "";
+            window.document.getElementById("form_inhalt").value = "";
         });
     }
 
@@ -40,7 +42,8 @@ class CreateNotice {
         let inhalt = window.document.getElementById("form_inhalt").value;
         window.console.log(inhalt);
 
-        _database.addNotice(title, inhalt);  
+        let alertMessage = _database.addNotice(title, inhalt);
+        window.alert(alertMessage);
     }
 
     changePathToHome()

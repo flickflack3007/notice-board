@@ -24,5 +24,10 @@ class Home {
     {
 
     }
+
+    setMinimal()
+    {
+        
+    }
 }
 export default Home;

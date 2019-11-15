@@ -38,26 +38,44 @@ class Database {
 
     addNotice(t, i)
     {
+        let alertMessage = "Eintrag erstellt";
+
         _db.collection("notice").add({
             titel: t,
             inhalt: i,
             erstelldatum: Date.now(),
-            angezeigt: false
+            minimiert: false
         })
         .then(function(docRef) {
             console.log("Eintrag erstellt mit der ID: ", docRef.id);
         })
         .catch(function(error) {
             console.error("Fehler beim Speichern in der DB: ", error);
+            alertMessage = "Fehler bei der Speicherung";
         });
+        return alertMessage;
     }
 
     getNotice()
     {
-        _db.collection("users").get().then((querySnapshot) => {
+        _db.collection("notice").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`);
+                window.console.log(`${doc.id} => ${doc.data().titel}`);
             });
+        });
+    }
+
+    getMinimierteNotice()
+    {
+        _db.collection("notice").where("minimiert", "==", true)
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                window.console.log(doc.id, " => ", doc.data());
+            });
+        })
+        .catch(function(error) {
+            window.console.log("Error getting documents: ", error);
         });
     }
 }

@@ -16,7 +16,7 @@ body{
     flex-direction:column;
     min-height: 100vh;
 }
-    
+
 body *{
     padding-left:.5em;
 }
@@ -29,7 +29,7 @@ header>#loginRahmen{
     margin-bottom: -30px;
 }
 
-header>h1{
+header>h1>a{
     display:flex;
     justify-content:center;
     flex-direction:row;
@@ -38,18 +38,29 @@ header>h1{
     color:#c70566;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgba(46, 43, 43, 0.76);
+    text-decoration: none;
     padding-bottom:15pt;
     margin-left:5em;
     margin-right:5em;
 }
 
-#login{
+i.far.fa-edit {
+    color: #fffaf0;
+    padding: 7.5pt;
+    margin-top: -4.5pt
+}
+
+#login {
     font-weight: bolder;
     font-size: 20pt;
-    color:floralwhite;
-    background-color:rgb(84, 170, 76);
-    border-radius:.5em;
-    padding:5pt;
+    color: #fffaf0;
+    padding: 5pt;
+    text-decoration: none;
+}
+
+i.far.fa-edit, #login {
+    background-color: #54aa4c;
+    border-radius: .5em;
 }
 
 #main{
@@ -59,11 +70,11 @@ header>h1{
 }
 
 #create {
-    
+
     display: flex;
     flex-direction: row;
     justify-content: left;
-    
+
 }
 
 #sidebar {
@@ -75,7 +86,7 @@ header>h1{
 }
 
 #sidebar {
-    
+
     background-color: #54aa4c;
     border-radius: .5em;
     margin-right: 5em;
@@ -84,7 +95,7 @@ header>h1{
     float: left;
     width: 10%;
 	height: 60vh;
-    
+
 }
 
 #board{

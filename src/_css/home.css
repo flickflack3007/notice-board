@@ -1,9 +1,65 @@
-div{
+ul {
+    display: flex;
+    flex-direction: column;
+	align-items: flex-start;
+    list-style-type: none;
+    color: black;
+    font-size: 14pt;
+}
+
+div {
     font-size:15pt;
     font-weight: bold;
-    color:floralwhite;
+    color:black;
 }
 
 #landingPage {
     justify-content: flex-start
+}
+
+button {
+    background-color: #c70566;
+    color:floralwhite;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 10px;
+    margin-right: 13px;
+    margin-bottom: 10px;
+    font-family: 'Amatic SC', cursive;
+    text-decoration: none;
+    border: black;
+    display: inline-block;
+    border-radius: .5em;
+    justify-content: center;
+}
+
+.ueberschrift{
+    padding: 1pt;
+    margin-top: 10pt;
+    margin-bottom: 1pt;
+}
+
+h4, li > p {
+
+    color:black;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 14px;
+    font-family: 'Amatic SC', cursive;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: .5em;
+
+}
+
+.notiz {
+    
+    background: floralwhite;
+    border-radius: .5em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
 }

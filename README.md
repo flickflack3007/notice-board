@@ -22,7 +22,7 @@ Jedoch wird kein übergreifendes Framework wie Angular oder React verwendet.
 
 Folgende Entwicklungswerkzeuge kommen stattdessen zum Einsatz:
 
- * [Visual Studio Vode:](https://code.visualstudio.com) Bester Texteditor für Webentwickler und Programmierer
+ * [Visual Studio Code:](https://code.visualstudio.com) Bester Texteditor für Webentwickler und Programmierer
  * [git:](https://git-scm.com/") Versionsverwaltung zur gemeinsamen Arbeit am Quellcode
  * [npm:](https://nodejs.org/") Paketverwaltung zum automatischen Download abhängiger Bibliotheken
  * [Parcel:](https://parceljs.org/") Web Application Bundler und Entwicklungsserver

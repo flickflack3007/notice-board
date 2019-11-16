@@ -58,3 +58,10 @@ UI-Skizzen und Screenshots
         </td>
     </tr>
 </table>
+
+Zum Starten der Application
+---------------------------
+
+* npm install
+* npm run build
+* npm run start

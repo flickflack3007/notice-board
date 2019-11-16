@@ -47,16 +47,31 @@ class Home {
     createNoticeDisplayElement(doc)
     {
         let li = window.document.createElement('li');
+        li.classList.add("notiz");
+
         let titel = window.document.createElement('h3');
+        titel.classList.add("ueberschrift");
         titel.textContent = doc.data().titel;
+
         let inhalt = window.document.createElement('p');
+        inhalt.classList.add("text");
         inhalt.textContent = doc.data().inhalt;
+
         let minBut = window.document.createElement('button');
         minBut.textContent = "Minimieren";
         li.appendChild(titel);
         li.appendChild(inhalt);
         li.appendChild(minBut);
         return li;
+    }
+
+    addMinimiereListener()
+    {
+        window.console.log(button);
+        button.addEventListener("onclick", function()
+        {
+            window.console.log("!");
+        });
     }
 
     setMinimal()

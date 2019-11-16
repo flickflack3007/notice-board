@@ -172,16 +172,6 @@ class App {
         newNoticeList.id = "noticeList";
         sidebar.appendChild(newNoticeList);
 
-        /*Die Scheiße funktioniert einfach nicht ... danke JavaScript
-        window.console.log(nL.hasChildNodes());
-        while(!nL.hasChildNodes()) 
-        {
-            window.console.log(nL.firstChild);
-            nL.removeChild(nL.firstChild);
-            window.console.log(nL.childNodes);
-        }
-        */
-
         let that = this;
         this._database.getAllMinimierteNotice().then(function(querySnapshot)
         {
@@ -202,19 +192,7 @@ class App {
         li.appendChild(but);
         return li;
     }
-
-    /*
-    addDragAndDrop(but)
-    {
-        but.setAttribute("draggable", true);
-        but.addEventListener("ondragstart", function(event)
-        {
-            event.dataTransfer.setData("text", event.target.id);
-        });
-        return but
-    }
-    */
-
+    
     //Logger
     logPath() {
         window.console.log(window.location.pathname);

@@ -1,7 +1,7 @@
 "use strict"
 
 import stylesheet from "../_css/createNotice.css";
-import { database } from "firebase";
+import { database, app } from "firebase";
 import { ENGINE_METHOD_DIGESTS } from "constants";
 import App from "../_js/app";
 
@@ -31,6 +31,7 @@ class CreateNotice {
             this.saveNotice();
             window.document.getElementById("form_title").value = "";
             window.document.getElementById("form_inhalt").value = "";
+            _app.updateSidebar();
         });
     }
 

@@ -6,7 +6,7 @@ import Login from "../login-page/login.js";
 import CreateNotice from "../createNotice-page/createNotice.js";
 import Database from "./database";
 import {
-    app
+    app, database
 } from "firebase";
 
 /**
@@ -136,7 +136,6 @@ class App {
     }
 
     fetchFile(path) {
-
         return new Promise(function (resolve, reject) {
 
             //erzeugen eines XMLHttpRequest
@@ -160,18 +159,61 @@ class App {
             request.send(null);
 
         });
-
     }
 
     updateSidebar()
     {
-        let noticeList = window.document.getElementById("noticeList");
-        let newNotice = window.document.createElement("li");
+        window.console.log("Update Sidebar");
+        let oldNoticeList = window.document.getElementById("noticeList");
+        oldNoticeList.remove();
+
+        let sidebar = window.document.getElementById("sidebar");
+        let newNoticeList = window.document.createElement('ul');
+        newNoticeList.id = "noticeList";
+        sidebar.appendChild(newNoticeList);
+
+        /*Die Scheiße funktioniert einfach nicht ... danke JavaScript
+        window.console.log(nL.hasChildNodes());
+        while(!nL.hasChildNodes()) 
+        {
+            window.console.log(nL.firstChild);
+            nL.removeChild(nL.firstChild);
+            window.console.log(nL.childNodes);
+        }
+        */
+
+        let that = this;
+        this._database.getAllMinimierteNotice().then(function(querySnapshot)
+        {
+            querySnapshot.forEach(function(doc)
+            {
+                let li = that.createSidebarElement(doc);
+                newNoticeList.appendChild(li);
+            });
+        })
         
-        this._database.getNotice();
-        this._database.getMinimierteNotice();
     }
 
+    createSidebarElement(doc)
+    {
+        let li = window.document.createElement('li');
+        let but = window.document.createElement('button');
+        but.textContent = doc.data().titel;
+        li.appendChild(but);
+        return li;
+    }
+
+    /*
+    addDragAndDrop(but)
+    {
+        but.setAttribute("draggable", true);
+        but.addEventListener("ondragstart", function(event)
+        {
+            event.dataTransfer.setData("text", event.target.id);
+        });
+        return but
+    }
+    */
 
     //Logger
     logPath() {

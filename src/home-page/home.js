@@ -2,6 +2,7 @@
 
 import stylesheet from "../_css/home.css";
 import App from "../_js/app";
+import { database, app } from "firebase";
 
 let _app = "";
 let _database = "";
@@ -18,16 +19,50 @@ class Home {
 
     startHome() {
         window.console.log("Klasse Home gestartet");
+        this.updateNoticeDisplay();
     }
 
-    showNotice()
+    updateNoticeDisplay()
     {
+        window.console.log("Update Notice Display");
+        let oldDisplay = window.document.getElementById("noticeDisplay");
+        oldDisplay.remove();
 
+        let content = window.document.getElementById("content");
+        let newDisplay = window.document.createElement('ul');
+        newDisplay.id = "noticeDisplay";
+        content.appendChild(newDisplay);
+
+        let that = this;
+        _database.getAllNormalNotice().then(function(querySnapshot)
+        {
+            querySnapshot.forEach(function(doc)
+            {
+                let li = that.createNoticeDisplayElement(doc);
+                newDisplay.appendChild(li);
+            });
+        })
+    }
+
+    createNoticeDisplayElement(doc)
+    {
+        let li = window.document.createElement('li');
+        let titel = window.document.createElement('h3');
+        titel.textContent = doc.data().titel;
+        let inhalt = window.document.createElement('p');
+        inhalt.textContent = doc.data().inhalt;
+        let minBut = window.document.createElement('button');
+        minBut.textContent = "Minimieren";
+        li.appendChild(titel);
+        li.appendChild(inhalt);
+        li.appendChild(minBut);
+        return li;
     }
 
     setMinimal()
     {
-        
+        doc.data().minimiert = true;
+        _app.updateSidebar();
     }
 }
 export default Home;

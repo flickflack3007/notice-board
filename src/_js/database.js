@@ -43,7 +43,6 @@ class Database {
         _db.collection("notice").add({
             titel: t,
             inhalt: i,
-            erstelldatum: Date.now(),
             minimiert: false
         })
         .then(function(docRef) {
@@ -56,27 +55,38 @@ class Database {
         return alertMessage;
     }
 
-    getNotice()
+
+    getNoticeByTitel(t)
     {
-        _db.collection("notice").get().then((querySnapshot) => {
+        return _db.collection("notice").where("ttel", "==", t).get();
+    }
+
+    getAllNormalNotice()
+    {
+        return _db.collection("notice").where("minimiert", "==", false).get();
+        /*
+        .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 window.console.log(`${doc.id} => ${doc.data().titel}`);
             });
         });
+        */
     }
 
-    getMinimierteNotice()
+    getAllMinimierteNotice()
     {
-        _db.collection("notice").where("minimiert", "==", true)
-        .get()
+        return _db.collection("notice").where("minimiert", "==", true).get();
+        /*
         .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                window.console.log(doc.id, " => ", doc.data());
+            querySnapshot.forEach((doc) => { 
+                noticeListe.push(doc.data().titel);
             });
         })
         .catch(function(error) {
             window.console.log("Error getting documents: ", error);
+            noticeListe[0] = "Fehler";
         });
+        */
     }
 }
 export default  Database;

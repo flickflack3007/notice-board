@@ -83,19 +83,15 @@ i.far.fa-edit, #login {
     background-color: #54aa4c;
     height: auto;
     width: max-content;
-}
-
-#sidebar {
-
     background-color: #54aa4c;
     border-radius: .5em;
     margin-right: 5em;
     margin-left: 1em;
     padding: 15pt;
+    padding-top: 1pt;
     float: left;
     width: 10%;
 	height: 60vh;
-
 }
 
 #board{

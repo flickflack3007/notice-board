@@ -47,7 +47,7 @@ class Home {
     createNoticeDisplayElement(doc)
     {
         let li = window.document.createElement('li');
-        let titel = window.document.createElement('h3');
+        let titel = window.document.createElement('h4');
         titel.textContent = doc.data().titel;
         let inhalt = window.document.createElement('p');
         inhalt.textContent = doc.data().inhalt;

@@ -1,4 +1,13 @@
-div{
+ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    list-style-type: none;
+}
+
+div {
     font-size:15pt;
     font-weight: bold;
     color:floralwhite;
@@ -6,4 +15,35 @@ div{
 
 #landingPage {
     justify-content: flex-start
+}
+
+button {
+    background-color: #54aa4c;
+    color:floralwhite;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 10px;
+    font-family: 'Amatic SC', cursive;
+    text-decoration: none;
+    border: black;
+    display: inline-block;
+    border-radius: .5em;
+    justify-content: center;
+}
+
+h4, li > p {
+
+    background-color: #54aa4c;
+    color:floralwhite;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 10px;
+    font-family: 'Amatic SC', cursive;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: .5em;
+    justify-content: center;
+
 }

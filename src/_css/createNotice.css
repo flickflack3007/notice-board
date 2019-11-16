@@ -1,0 +1,72 @@
+h2 {
+    background: #54aa4c;
+    color:floralwhite;
+    border-radius: .5em;
+    display: inline-block;
+    padding: 10px;
+}
+
+#createBody {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#saveButton {
+    background: #c70566;
+    color:floralwhite;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 10px;
+    font-family: 'Amatic SC', cursive;
+    text-decoration: none;
+    border: black;
+    display: inline-block;
+    border-radius: .5em;
+    justify-content: center;
+}
+
+#label_title {
+    background-color: #54aa4c;
+    border-radius: .5em;
+    padding: 8px;
+    margin: 5px;
+    margin-top: 15pt;
+    margin-bottom: 5pt;
+    display: inline-block;
+}
+
+#label_inhalt {
+    background-color: #54aa4c;
+    border-radius: .5em;
+    padding: 8px;
+    margin: 5px;
+    margin-top: 15pt;
+    margin-bottom: 5pt;
+    display: inline-block;
+}
+
+#form_title {
+    width: 40%;
+    height: 5%;
+    border: floralwhite;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    resize: none;
+    display: block;
+}
+
+#form_inhalt {
+    width: 40%;
+    height: 150pt;
+    border: floralwhite;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    display: block;
+    overflow-y: scroll;
+}

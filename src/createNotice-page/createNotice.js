@@ -1,8 +1,13 @@
 "use strict"
 
 import stylesheet from "../_css/createNotice.css";
-import { database, app } from "firebase";
-import { ENGINE_METHOD_DIGESTS } from "constants";
+import {
+    database,
+    app
+} from "firebase";
+import {
+    ENGINE_METHOD_DIGESTS
+} from "constants";
 import App from "../_js/app";
 
 let _app = "";
@@ -20,8 +25,7 @@ class CreateNotice {
         this.addSaveButtonListener();
     }
 
-    startCreateNotice()
-    {
+    startCreateNotice() {
         window.console.log("Klasse CreateNotice");
     }
 
@@ -35,8 +39,7 @@ class CreateNotice {
         });
     }
 
-    saveNotice()
-    {
+    saveNotice() {
         let title = window.document.getElementById("form_title").value;
         window.console.log(title);
 
@@ -47,8 +50,7 @@ class CreateNotice {
         window.alert(alertMessage);
     }
 
-    changePathToHome()
-    {
+    changePathToHome() {
         window.location.pathname = "/home";
     }
 }

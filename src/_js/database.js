@@ -19,7 +19,7 @@ const firebaseConfig = {
     messagingSenderId: "1049774474367",
     appId: "1:1049774474367:web:d816f91cf87b1fe7b26b4a",
     measurementId: "G-ZSD6CBCCXX"
-  };
+};
 
 let _db = "";
 
@@ -31,52 +31,49 @@ class Database {
         _db = firebase.firestore();
     }
 
-    start()
-    {
+    start() {
         window.console.log("Klasse Database");
     }
 
-    addNotice(t, i)
-    {
+    addNotice(t, i) {
         let alertMessage = "Eintrag erstellt";
 
         _db.collection("notice").add({
-            titel: t,
-            inhalt: i,
-            minimiert: false
-        })
-        .then(function(docRef) {
-            console.log("Eintrag erstellt mit der ID: ", docRef.id);
-        })
-        .catch(function(error) {
-            console.error("Fehler beim Speichern in der DB: ", error);
-            alertMessage = "Fehler bei der Speicherung";
-        });
+                titel: t,
+                inhalt: i,
+                minimiert: false
+            })
+            .then(function (docRef) {
+                console.log("Eintrag erstellt mit der ID: ", docRef.id);
+            })
+            .catch(function (error) {
+                console.error("Fehler beim Speichern in der DB: ", error);
+                alertMessage = "Fehler bei der Speicherung";
+            });
         return alertMessage;
     }
 
 
-    getNoticeByTitel(t, boolean)
-    {
+    getNoticeByTitel(t, boolean) {
         _db.collection("notice").where("titel", "==", t).get()
-        .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                _db.collection("notice").doc(doc.id).update({minimiert: boolean});
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    _db.collection("notice").doc(doc.id).update({
+                        minimiert: boolean
+                    });
+                });
+            })
+            .catch(function (error) {
+                console.log("Error getting documents: ", error);
             });
-        })
-        .catch(function(error) {
-            console.log("Error getting documents: ", error);
-        });
     }
 
-    getAllNormalNotice()
-    {
+    getAllNormalNotice() {
         return _db.collection("notice").where("minimiert", "==", false).get();
     }
 
-    getAllMinimierteNotice()
-    {
+    getAllMinimierteNotice() {
         return _db.collection("notice").where("minimiert", "==", true).get();
     }
 }
-export default  Database;
+export default Database;

@@ -17,8 +17,7 @@ class Delete {
         App.changeTitle("Notice Board - Löschen");
     }
 
-    startDelete()
-    {
+    startDelete() {
         window.console.log("Klasse Löschen");
     }
 }

@@ -6,7 +6,8 @@ import Delete from "../delete-page/delete.js";
 import CreateNotice from "../createNotice-page/createNotice.js";
 import Database from "./database";
 import {
-    app, database
+    app,
+    database
 } from "firebase";
 
 /**
@@ -31,8 +32,7 @@ class App {
         this._delete = null;
     }
 
-    static changeTitle(t)
-    {
+    static changeTitle(t) {
         window.document.title = t;
     }
 
@@ -158,8 +158,7 @@ class App {
         });
     }
 
-    updateSidebar()
-    {
+    updateSidebar() {
         window.console.log("Update Sidebar");
         let oldNoticeList = window.document.getElementById("noticeList");
         oldNoticeList.remove();
@@ -170,23 +169,19 @@ class App {
         sidebar.appendChild(newNoticeList);
 
         let that = this;
-        this._database.getAllMinimierteNotice().then(function(querySnapshot)
-        {
-            querySnapshot.forEach(function(doc)
-            {
+        this._database.getAllMinimierteNotice().then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
                 let li = that.createSidebarElement(doc);
                 newNoticeList.appendChild(li);
             });
-        })  
+        })
     }
 
-    createSidebarElement(doc)
-    {
+    createSidebarElement(doc) {
         let li = window.document.createElement('li');
         let but = window.document.createElement('button');
         let that = this;
-        but.addEventListener("click", function()
-        {
+        but.addEventListener("click", function () {
             let t = but.textContent;
             that._database.getNoticeByTitel(t, false);
             but.remove();

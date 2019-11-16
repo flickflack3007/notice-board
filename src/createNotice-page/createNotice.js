@@ -22,7 +22,7 @@ class CreateNotice {
 
     startCreateNotice()
     {
-        window.console.log("Klasse CreateNotice gestartet");
+        window.console.log("Klasse CreateNotice");
     }
 
     addSaveButtonListener() {

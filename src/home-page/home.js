@@ -18,7 +18,7 @@ class Home {
     }
 
     startHome() {
-        window.console.log("Klasse Home gestartet");
+        window.console.log("Klasse Home");
         this.updateNoticeDisplay();
     }
 
@@ -62,20 +62,15 @@ class Home {
         minBut.textContent = "Minimieren";
         minBut.addEventListener("click", function()
         {
-            window.console.log("!");
+            let t = titel.textContent;
+            _database.getNoticeByTitel(t, true);  
+            li.remove();
         });
 
         li.appendChild(titel);
         li.appendChild(inhalt);
         li.appendChild(minBut);
         return li;
-    }
-
-
-    setMinimal()
-    {
-        doc.data().minimiert = true;
-        _app.updateSidebar();
     }
 }
 export default Home;

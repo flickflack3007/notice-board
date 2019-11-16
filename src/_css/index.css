@@ -21,7 +21,7 @@ body *{
     padding-left:.5em;
 }
 
-header>#loginRahmen{
+header>#deleteRahmen{
     display: flex;
     flex-direction:row-reverse;
     padding-right: 25px;
@@ -50,7 +50,7 @@ i.far.fa-edit {
     margin-top: -4.5pt
 }
 
-#login {
+#delete {
     font-weight: bolder;
     font-size: 20pt;
     color: #fffaf0;
@@ -58,7 +58,7 @@ i.far.fa-edit {
     text-decoration: none;
 }
 
-i.far.fa-edit, #login {
+i.far.fa-edit, #delete {
     background-color: #54aa4c;
     border-radius: .5em;
 }

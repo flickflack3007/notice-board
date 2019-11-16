@@ -1,6 +1,6 @@
 "use strict"
 
-import stylesheet from "../_css/login.css";
+import stylesheet from "../_css/delete.css";
 import App from "../_js/app";
 
 let _app = "";
@@ -19,7 +19,7 @@ class Delete {
 
     startDelete()
     {
-        window.console.log("Löschen gestartet");
+        window.console.log("Klasse Löschen");
     }
 }
 export default Delete;

@@ -41,7 +41,7 @@ class App {
      * (sozuagen main-methode)
      */
     start() {
-        window.console.log("Die Klasse App sagt Hallo!");
+        window.console.log("Klasse App");
 
         //Wenn keine Fragment ID zum Start der Seite ausgewählt wurde, zeige #home an
         if (window.location.pathname == "/") {
@@ -64,7 +64,6 @@ class App {
     addPathListener() {
         window.addEventListener("popstate", this.navigate.bind(this));
     }
-
 
     //Navigation
     navigate() {
@@ -108,7 +107,6 @@ class App {
         }
         return false;
     }
-
 
     //Content Befüllung
     getContent(fragmentID) {
@@ -189,9 +187,8 @@ class App {
         let that = this;
         but.addEventListener("click", function()
         {
-            window.console.log(but.textContent);
             let t = but.textContent;
-            that._database.getNoticeByTitel(t);
+            that._database.getNoticeByTitel(t, false);
             but.remove();
         });
 
@@ -199,7 +196,6 @@ class App {
         li.appendChild(but);
         return li;
     }
-
 
     //Logger
     logPath() {

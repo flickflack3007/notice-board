@@ -56,11 +56,20 @@ class Database {
     }
 
 
-    
-
     getNoticeByTitel(t)
     {
-        return _db.collection("notice").where("titel", "==", t).get();
+        let i = 1;
+        _db.collection("notice").where("titel", "==", t).get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                console.log(doc.id, " => ", doc.data());
+                // Build doc ref from doc.id
+                _db.collection("notice").doc(doc.id).update({minimiert: false});
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
     }
 
     getAllNormalNotice()

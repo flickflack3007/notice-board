@@ -2,7 +2,7 @@
 
 import stylesheet from "../_css/app.css";
 import Home from "../home-page/home.js";
-import Login from "../login-page/login.js";
+import Delete from "../delete-page/delete.js";
 import CreateNotice from "../createNotice-page/createNotice.js";
 import Database from "./database";
 import {
@@ -28,7 +28,7 @@ class App {
         //Template Javascript Classen
         this._createNotice = null;
         this._home = null;
-        this._login = null;
+        this._delete = null;
     }
 
     static changeTitle(t)
@@ -90,9 +90,9 @@ class App {
                 this._home = new Home(this);
                 this._home.startHome();
                 break;
-            case "/login":
-                this._login = new Login(this);
-                this._login.startLogin();
+            case "/delete":
+                this._delete = new Delete(this);
+                this._delete.startDelete();
                 break;
         }
     }
@@ -103,7 +103,7 @@ class App {
                 return true;
             case "/createNotice":
                 return true;
-            case "/login":
+            case "/delete":
                 return true;
         }
         return false;
@@ -184,12 +184,15 @@ class App {
 
     createSidebarElement(doc)
     {
-        window.console.log("Help");
         let li = window.document.createElement('li');
         let but = window.document.createElement('button');
+        let that = this;
         but.addEventListener("click", function()
         {
-
+            window.console.log(but.textContent);
+            let t = but.textContent;
+            that._database.getNoticeByTitel(t);
+            but.remove();
         });
 
         but.textContent = doc.data().titel;

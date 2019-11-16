@@ -52,6 +52,7 @@ h2 {
 #form_title {
     width: 40%;
     height: 5%;
+    background: floralwhite;
     border: floralwhite;
     border-radius: 5px;
     padding: 5px;
@@ -63,6 +64,7 @@ h2 {
 #form_inhalt {
     width: 40%;
     height: 150pt;
+    background: floralwhite;
     border: floralwhite;
     border-radius: 5px;
     padding: 5px;

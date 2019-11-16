@@ -56,9 +56,11 @@ class Database {
     }
 
 
+    
+
     getNoticeByTitel(t)
     {
-        return _db.collection("notice").where("ttel", "==", t).get();
+        return _db.collection("notice").where("titel", "==", t).get();
     }
 
     getAllNormalNotice()

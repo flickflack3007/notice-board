@@ -73,7 +73,6 @@ class App {
 
         //location.hash wird ohne # in variable fragmentID gespeichert
         let fragmentID = window.location.pathname;
-
         if (this.testRoutes(fragmentID) === true) {
             this.getContent(fragmentID);
         } else {
@@ -180,19 +179,25 @@ class App {
                 let li = that.createSidebarElement(doc);
                 newNoticeList.appendChild(li);
             });
-        })
-        
+        })  
     }
 
     createSidebarElement(doc)
     {
+        window.console.log("Help");
         let li = window.document.createElement('li');
         let but = window.document.createElement('button');
+        but.addEventListener("click", function()
+        {
+
+        });
+
         but.textContent = doc.data().titel;
         li.appendChild(but);
         return li;
     }
-    
+
+
     //Logger
     logPath() {
         window.console.log(window.location.pathname);

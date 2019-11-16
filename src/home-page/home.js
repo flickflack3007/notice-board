@@ -40,6 +40,7 @@ class Home {
             {
                 let li = that.createNoticeDisplayElement(doc);
                 newDisplay.appendChild(li);
+                
             });
         })
     }
@@ -59,20 +60,17 @@ class Home {
 
         let minBut = window.document.createElement('button');
         minBut.textContent = "Minimieren";
+        minBut.addEventListener("click", function()
+        {
+            window.console.log("!");
+        });
+
         li.appendChild(titel);
         li.appendChild(inhalt);
         li.appendChild(minBut);
         return li;
     }
 
-    addMinimiereListener()
-    {
-        window.console.log(button);
-        button.addEventListener("onclick", function()
-        {
-            window.console.log("!");
-        });
-    }
 
     setMinimal()
     {

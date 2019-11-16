@@ -1,16 +1,16 @@
 ul {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
+	align-items: flex-start;
     list-style-type: none;
+    color: black;
+    font-size: 14pt;
 }
 
 div {
     font-size:15pt;
     font-weight: bold;
-    color:floralwhite;
+    color:black;
 }
 
 #landingPage {
@@ -18,12 +18,14 @@ div {
 }
 
 button {
-    background-color: #54aa4c;
+    background-color: #c70566;
     color:floralwhite;
     font-size: 18px;
     font-weight: bold;
     line-height: 16px;
     padding: 10px;
+    margin-right: 13px;
+    margin-bottom: 10px;
     font-family: 'Amatic SC', cursive;
     text-decoration: none;
     border: black;
@@ -32,18 +34,32 @@ button {
     justify-content: center;
 }
 
+.ueberschrift{
+    padding: 1pt;
+    margin-top: 10pt;
+    margin-bottom: 1pt;
+}
+
 h4, li > p {
 
-    background-color: #54aa4c;
-    color:floralwhite;
+    color:black;
     font-size: 18px;
-    font-weight: bold;
-    line-height: 16px;
-    padding: 10px;
+    font-weight: normal;
+    line-height: 14px;
     font-family: 'Amatic SC', cursive;
     text-decoration: none;
     display: inline-block;
     border-radius: .5em;
-    justify-content: center;
 
+}
+
+.notiz {
+    
+    background: floralwhite;
+    border-radius: .5em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
 }

@@ -1,6 +1,7 @@
 ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
 	align-items: flex-start;
     list-style-type: none;
     color: black;
@@ -14,7 +15,7 @@ div {
 }
 
 #landingPage {
-    justify-content: flex-start
+    justify-content: flex-start;
 }
 
 button {
@@ -38,6 +39,7 @@ button {
     padding: 1pt;
     margin-top: 10pt;
     margin-bottom: 1pt;
+    margin-right: 10pt;
 }
 
 h4, li > p {
@@ -50,7 +52,9 @@ h4, li > p {
     text-decoration: none;
     display: inline-block;
     border-radius: .5em;
-
+    white-space: initial;
+    margin: 10px;
+  
 }
 
 .notiz {
@@ -62,4 +66,7 @@ h4, li > p {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
+    margin: 10pt;
+    white-space: nowrap;
+    overflow: hidden;
 }

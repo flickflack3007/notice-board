@@ -1,6 +1,7 @@
 Notice Board
 ===============================
 
+
 Kurzbeschreibung
 ----------------
 
@@ -9,15 +10,16 @@ Aufrufen der HTML-Datei gestartet und dann bis zum Verlassen der
 App nicht wieder neugeladen wird.
 Die verschiedenen Ansichten werden durch generierte HTML-Templates angezeigt.
 
-Die Anwendung ermöglicht dem Nutzer die Erstellung von Notizen,
+Die Anwendung ermöglicht Nutzer*innen die Erstellung von Notizen,
 die entweder auf der Hauptansicht angezeigt werden oder als minimierte Version (Titel)
 in der Sidebar abgelegt werden.
+
 
 Verwendete Technologien
 -----------------------
 
-Die App nutzt den Node Package Manager npm als Paketverwaltung. Auf diese
-Weise werden der Application Bundler ParcelJS.
+Die App nutzt den Node Package Manager (npm) als Paketverwaltung. Auf diese
+Weise wird der Application Bundler ParcelJS gesteuert.
 Jedoch wird kein übergreifendes Framework wie Angular oder React verwendet.
 
 Folgende Entwicklungswerkzeuge kommen stattdessen zum Einsatz:
@@ -31,19 +33,20 @@ Zusätzlich werden folgende Bibliotheken genutzt:
 
  * [Google Firebase:](https://firebase.google.com/") NoSQL Datenbank zur Serverseitigen Speicherung der Notizen
 
+
 UI-Skizzen und Screenshots
 --------------------------
 
 <table style="max-width: 100%;">
     <tr>
         <td>
-            <img src="mockup1.bmp" style="display: block; width: 100%;" />
+            <img src="Desktop_Hauptseite.png" style="display: block; width: 100%;" />
         </td>
         <td>
-            <img src="mockup2.bmp" style="display: block; width: 100%;" />
+            <img src="Desktop_CreateNotice.png" style="display: block; width: 100%;" />
         </td>
         <td>
-            <img src="FEHLT_MOBILE_ANSICHT.png" style="display: block; width: 100%;" />
+            <img src="Mobile_Hauptseite.png" style="display: block; width: 100%;" />
         </td>
     </tr>
     <tr>
@@ -59,9 +62,21 @@ UI-Skizzen und Screenshots
     </tr>
 </table>
 
+
 Zum Starten der Application
 ---------------------------
 
 * npm install
 * npm run build
 * npm run start
+
+
+Zum Minimieren und Maximieren von Notizen
+-----------------------------------------
+
+* auf den Minimieren-Button einer Notiz auf der Homepage klicken
+* Home über Klick auf "Notice Board" neu laden
+* Notiz-Überschrift erscheint jetzt in der Sidebar
+* zum Maximieren in der Sidebar auf die Notiz-Überschrift klicken
+* Home über Klick auf "Notice Board" neu laden
+* Notiz erscheint jetzt wieder komplett auf der Pinnwand

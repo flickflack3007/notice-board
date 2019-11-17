@@ -75,7 +75,7 @@ i.far.fa-edit, i.far.fa-trash {
     flex-direction: column;
     background-color: #54aa4c;
     height: max-content;
-    width: max-content;
+    width: min-content;
     border-radius: .5em;
     margin-right: 5pt;
     margin-left: 1em;

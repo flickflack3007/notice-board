@@ -2,10 +2,12 @@ ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-	align-items: flex-start;
+    align-items: baseline;
+    flex-flow: wrap;
     list-style-type: none;
     color: black;
     font-size: 14pt;
+    margin-left: -10pt;
 }
 
 div {
@@ -64,9 +66,7 @@ h4, li > p {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin: 10pt;
+    margin: 5pt;
     white-space: nowrap;
     overflow: hidden;
 }

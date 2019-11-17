@@ -9,12 +9,12 @@ body,html{
     padding:0;
 }
 
-body{
+.Page {
     font-family:'Amatic SC', cursive;
     font-size:12pt;
     display:flex;
-    flex-direction:column;
     min-height: 100vh;
+    flex-direction:column;
 }
 
 body *{
@@ -40,8 +40,7 @@ header>h1>a{
     -webkit-text-stroke-color: rgba(46, 43, 43, 0.76);
     text-decoration: none;
     padding-bottom:15pt;
-    margin-left:5em;
-    margin-right:5em;
+    padding-left: 0em;
 }
 
 i.far.fa-edit {
@@ -56,10 +55,11 @@ i.far.fa-edit, i.far.fa-trash {
     padding: 7.5pt;
 }
 
-#main{
+.PageContent {
     display:flex;
     flex-direction:row;
     background-image:url('../cork-board.png');
+    flex: 1;
 }
 
 #create {
@@ -74,16 +74,19 @@ i.far.fa-edit, i.far.fa-trash {
     display: flex;
     flex-direction: column;
     background-color: #54aa4c;
-    height: auto;
+    height: max-content;
     width: max-content;
     border-radius: .5em;
-    margin-right: 5em;
+    margin-right: 5pt;
     margin-left: 1em;
     padding: 15pt;
     padding-top: 1pt;
     float: left;
-    width: 10%;
-	height: 60vh;
+}
+
+#sidebar > h2 {
+    margin-right: 0pt;
+    margin-left: -10pt;
 }
 
 #board{
@@ -95,29 +98,38 @@ i.far.fa-edit, i.far.fa-trash {
     flex-direction: row;
 }
 
-.container {
-    flex: 1;
-}
-
 footer{
     background-color: #808080;
-    display: flex-end;
-    clear: both;
-    position: relative;
-    height: 100px;
-    margin-top: 120px;
+    display: flex;
+    height: 80px;
+    font-size: 10pt;
+    margin-top: 50pt;
 }
 
 @media (max-width:768px){
-    html{font-size:2.3vmin}
-    header > h1 {
-        font-size: 25pt;
- }
+    html {font-size:2.3vmin}
+    header > h1 > a {
+        font-size: 30pt;
+        margin-top: 25pt;
+        margin-left: -10pt;
+    }
+
+    #sidebar {
+        margin-left: 5pt;
+        margin-right: 5pt;
+        margin-bottom: 10pt;
+    }
+
+    footer {
+        height: 78px;
+        text-size-adjust: auto;
+    }
+
 }
 
 @media (min-width:768px){
-    html{font-size:2.3vmin}
-    section{display:flex}
+    html {font-size:2.3vmin}
+    section {display:flex}
 }
 
 @media (min-width:1200px){

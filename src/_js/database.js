@@ -36,7 +36,7 @@ class Database {
     }
 
     addNotice(t, i) {
-        let alertMessage = "Eintrag erstellt";
+        let alertMessage = "Notiz wurde erstellt";
 
         _db.collection("notice").add({
                 titel: t,

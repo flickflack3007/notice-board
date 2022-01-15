@@ -24,7 +24,7 @@
   "homepage": "https://github.com/flickflack3007/notice-board#readme",
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.5"
   },
   "dependencies": {
     "firebase": "^7.2.1"
